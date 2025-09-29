@@ -1,71 +1,74 @@
-# InfoEducatie2025_SortoBot
+# BursaSAB2025_SortoBot
 
-SortoBot este un prototip de robot autonom proiectat pentru a detecta și sorta deșeurile menajere (plastic, sticlă, carton) în mod automat, pe baza culorii coșurilor de gunoi.
-
+SortoBot este un prototip de robot autonom pentru detectarea și sortarea deșeurilor menajere (plastic, sticlă, carton). Proiectul este realizat pentru **Bursa SAB 2025**, cu accent pe **soluții inteligente pentru orașe sustenabile**, folosind **AI** pentru detecția containerelor și optimizarea traseelor.
 
 ![sortobot-fata](https://github.com/user-attachments/assets/0be4961a-94c6-4fc7-93eb-86d985d4c41f)
 
 ![sortobot-spate](https://github.com/user-attachments/assets/2305cf88-7383-4299-aec0-4dba8b875e03)
 
-
 ---
 
-## Onshape model 3D
+## Funcționalități principale
 
-https://cad.onshape.com/documents/6dcd17111db380910306cb9f/w/09c7ec735f4629dd65699941/e/5b817ed5bd58267ef9394a37?renderMode=0&uiState=68889b5304ee9a1da0ab395c
-
-## Funcționalități
-
-- Detectează automat coșurile de gunoi folosind ESP32-CAM și OpenCV
-- Trimite imaginile către un laptop prin WebSocket
-- Procesează culoarea dominantă în imagine și sortează gunoiul în compartimentul potrivit
-- Urmărește linia de pe jos cu senzori IR pentru a simula traseul pe o stradă
-- Oprește în fața unui coș de gunoi detectat (cu senzor ultrasonic)
-- Feedback vizual prin LED-uri colorate (roșu, verde, galben, albastru)
-- Descărcare automată într-un loc printr-o platformă înclinabilă
+- Detectează coșurile de gunoi folosind un senzor ultrasonic, dar și o cameră **ESP32-CAM + AI**
+- Sortare automată în compartimentele potrivite
+- Trasee optimizate prin algoritmi AI (smart city, colectare nocturnă)
+- Skip automat pentru obiecte care nu sunt containere
+- Braț robotic preia și sortează obiectele
+- Încărcare automată la stații solare amplasate în cartiere
 
 ---
-
-## Componente
-
-- **ESP32-WROOM** – control general al robotului
-- **ESP32-CAM** – captură imagine și transmitere prin WebSocket
-- **PCA9685** – control 6× servomotoare (braț robotic, mecanisme)
-- **L298N** – driver motor pentru deplasare
-- **Senzori IR + ultrasonic** – urmărire linie & oprire la coș
-- **Senzor electromagnetic** - Senzor Hall Analog, magnetic, KY-035 pentru variațiile de tensiune 
-- **3× baterii RCR123A + 2× convertoare buck** – alimentare stabilă
-
----
-
-## Software
-
-- Procesare imagine: [YOLOv8 + OpenCV](https://github.com/Selubipu/InfoEducatie2025_SortoBot/blob/main/computer%20vision/bin_detect.py) (500 ms / imagine)
-- Comunicare: WebSocket între ESP32-CAM și [server Node.js](https://github.com/Selubipu/InfoEducatie2025_SortoBot/blob/main/server/server.js)
-- Comenzi sortare/LED: HTTP către ESP32-WROOM
-- Algoritm [harta](https://github.com/Selubipu/InfoEducatie2025_SortoBot/blob/main/relevant%20files/harta_oras.html): Dijkstra (simulat în interfață HTML+JS)
-
 
 ## Portofoliu
 
 [SortoBot_Porotofoliu.pdf](https://github.com/user-attachments/files/20531227/SortoBot_Porotofoliu.pdf)
 
+---
 
-## Schema logica:
-![Image](https://github.com/user-attachments/assets/4635153e-174f-4f07-bb7c-84c2de5af619)
+## 3D Model Open-Source
+  
+[SortoBot CAD 3D](https://cad.onshape.com/documents/6dcd17111db380910306cb9f/w/09c7ec735f4629dd65699941/e/f97b531a446c7baf1dd965ba?renderMode=0&uiState=68dac0cf62d1e43322b89178)
 
-## Videos and images
+---
 
+## Software și integrare AI
 
-https://github.com/user-attachments/assets/23158b6e-8c34-4196-94d6-50561dbbfcba
+- Procesare imagine: [YOLOv8 + OpenCV](https://github.com/Selubipu/InfoEducatie2025_SortoBot/blob/main/computer%20vision/bin_detect.py)
+- Comunicarea cu robotul prin WebSocket și HTTP
+- Algoritm harta: trasee optimizate pentru acoperire completă
+- **Focus AI:** decizii autonome, coordonarea flotei de roboți, colectare eficientă
 
+---
 
-![449458835-25b689ca-6fb0-4974-b696-684fc74e2748](https://github.com/user-attachments/assets/a9da2578-b35f-405a-b837-394831c31751)
+## Componente esențiale
 
-https://github.com/user-attachments/assets/360cc1d4-3342-45b5-8489-b0b60394ee9c
+- **ESP32-WROOM** – control general
+- **ESP32-CAM** – captură și transmitere imagine
+- **PCA9685** – control servomotoare
+- **Braț robotic 3 DOF**
+- **Baterii + convertoare buck** – alimentare stabilă
+- **Senzori IR** – urmărire linie
+- **AI** – detecție container, decizii traseu, coordonare flote
 
-![449458833-8d889ea7-a891-4fbb-bb07-fadc6c8f0e00](https://github.com/user-attachments/assets/f626d822-4479-4860-8af2-110f2207b43f)
+---
 
+## Video YouTube
 
-https://github.com/user-attachments/assets/5af3a4a9-be06-4f97-8eef-67062ac7edec
+[Vizualizare demo YouTube](https://youtu.be/pKOb_VRmZ50)
 
+---
+
+## Imagini și video suplimentar
+
+<details>
+  <summary>Deschide pentru imagini și video</summary>
+
+  ![Schema logică](https://github.com/user-attachments/assets/4635153e-174f-4f07-bb7c-84c2de5af619)
+
+  [Video demo](https://github.com/user-attachments/assets/23158b6e-8c34-4196-94d6-50561dbbfcba)
+
+  ![Robot montat](https://github.com/user-attachments/assets/a9da2578-b35f-405a-b837-394831c31751)
+
+  ![Robot asamblat](https://github.com/user-attachments/assets/f626d822-4479-4860-8af2-110f2207b43f)
+
+</details>
