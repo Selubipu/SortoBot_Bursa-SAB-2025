@@ -21,7 +21,7 @@ SortoBot este un prototip de robot autonom pentru detectarea și sortarea deșeu
 
 ## Portofoliu
 
-[SortoBot_Porotofoliu.pdf]([videos and images/_SortoBot - Dan Voiculescu.pdf](https://github.com/Selubipu/SortoBot_Bursa-SAB-2025/blob/main/videos%20and%20images/_SortoBot%20-%20Dan%20Voiculescu.pdf))
+[SortoBot_Porotofoliu.pdf](https://github.com/Selubipu/SortoBot_Bursa-SAB-2025/blob/main/videos%20and%20images/_SortoBot%20-%20Dan%20Voiculescu.pdf)
 
 ---
 
